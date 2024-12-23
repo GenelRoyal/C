@@ -49,13 +49,24 @@
 //   return 0;
 // }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-typedef char String[1024];
+// typedef char String[1024];
+
+// int main(void)
+// {
+//   String monsterName = "ドラゴン";
+//   printf("敵は%s\n", monsterName);
+//   return 0;
+// }
+
+
+#include <stdio.h>
 
 int main(void)
 {
-  String monsterName = "ドラゴン";
-  printf("敵は%s\n", monsterName);
+  int age = 22;
+  int year = 2003;
+  printf("%d年生まれの岬くんは今年%d歳です\n", year, age);
   return 0;
 }

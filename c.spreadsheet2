@@ -93,3 +93,15 @@ typedef char String[1024];
 ・
 ・
 ・
+
+long number = 1504611718L;
+char alphabet = 'X';
+bool isError = false;
+double pi = 3.1415;
+int price = 19800;
+
+int balance;  //預金残高
+float bodyFatRate;  //体脂肪率
+bool isHoliday;  //休日か否か
+char numChar;  //文字としての数字
+long asset;  //資産
