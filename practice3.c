@@ -160,3 +160,38 @@ int main(void)
   return 0;
 }
 
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  printf("4桁の暗証番号を生成します\n");
+  
+  srand((unsigned)time(nullptr));
+  int r = rand() % 10;
+  int a = rand() % 10;
+  int n = rand() % 10;
+  int d = rand() % 10;
+  printf("暗証番号：%d%d%d%d\n", r, a, n, d);
+  return 0;
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef char String[1024];
+
+int main(void)
+{
+  String numStr;
+  printf("カレンダーから縦に並んだ数字を３つ選び、その合計を入力してください\n");
+  scanf("%s", numStr);
+  
+  int num = atoi(numStr) / 3;
+  printf("選んだ数字は%dと%dと%dですね？\n", num - 7, num, num + 7);
+  return 0;
+}
