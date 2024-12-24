@@ -76,3 +76,87 @@ int main(void)
 }
 
 // printf("来年%dですね", age + 1);  //命令実行の文の中で指揮を使える。
+
+#include <stdio.h>
+
+typedef char String[1024];
+
+int main(void)
+{
+  int age = 29;
+  String name = "かいとう";
+  printf("私は%d歳の%sです。¥n", age, name);
+  return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h>. //この行を忘れずに
+
+typedef char String[1024];
+
+int main(void)
+{
+  String age = "29";
+  int n = atoi(age);
+  printf("あなたは来年%d歳になります。¥n", n + 1);
+  return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)   
+{ 
+  srand((unsigned)time(nullptr));          //コンパイルエラーが発生する場合はNULLに置き換えてください。
+  int r =rand() % 100; 
+  printf("あなたはたぶん、%d歳ですね？¥n", r);
+  return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h> //atoi()のために必要。
+
+typedef char String[1024];
+
+int main(void)
+{
+  String name;
+  printf("あなたの名前を入力してください。¥n");
+  scanf("%s", name);
+  
+  String ageStr;
+  printf("あなたの年齢を入力してください。¥n");
+  scanf("%s", ageStr);
+  
+  int age = atoi(ageStr);
+  printf("ようこそ、%d歳の%sさん。¥n", age, name);
+  return 0;
+}
+
+応用自己開発
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+typedef char String[1024];
+
+int main(void)
+{
+  String name;
+  printf("あなたの名前を入力してください。\n");
+  scanf("%s", name);
+  
+  srand((unsigned)time(nullptr));
+  int r = rand() % 4;
+  
+  printf("%sさんの今日の運勢は...\n", name);
+  switch (r) {
+    case 0: printf("大吉！最高の一日です！\n"); break;
+    case 1: printf("中吉！良いことがあるかも！\n"); break;
+    case 2: printf("小吉！少し良いことがあるかも！\n"); break;
+    case 3: printf("凶…注意して過ごしましょう。\n"); break;
+  }
+  return 0;
+}
+
