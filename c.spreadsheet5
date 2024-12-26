@@ -15,3 +15,41 @@ if (height >= 170) {
 想定外の状況における動作は処理としてきちんと記述しておくべきです。したがってelseブロックは省略するべきではありません。
 デフォルト動作の内容がないケースでも、コメントとして // do nothing などと記述し、作成者の意図をコードに残しましょう。
 elseブロック内に ; と1行だけ書かれたコードは、「空文」と言い、何もしない処理を指示する文で、これも立派な文の一つ。do nothing コメントの代わりに使われることがある。
+
+
+switch文に書き換えられるif文の条件
+1.すべての条件式が==演算子で左辺と右辺が一致するかを比較する式である(<,>,!=が使われていない)。
+2.比較する値が整数(char,short,int,long型)や整数に類する型(bool型、列挙定数)であり、小数や文字列ではない。
+
+break文がなければ次のcaseブロックも続けて実行されるswitch文での動作をフォールスルー(fall through)と言います。
+
+
+C言語
+C言語
+
+100%
+10
+D10
+
+列挙定数とconst定数の微妙な違い
+列挙体により定められた定数とconst指定によるint型定数とは、
+厳密には取り扱いが異なります。
+例えば、C言語の使用ではswitch文のcaseラベルにはリテラルか列挙定
+数の記述しか認められず、constによる定数の使用は許されません。
+一部のコンパイラではcaseラベルへのconst定数の利用を許容します
+が、コンパイラの種類や設定によっては警告やエラーを出すものがあります。
+ 
+ 
+ 	
+列挙定数とconst定数の微妙な違い
+列挙体により定められた定数とconst指定によるint型定数とは、
+厳密には取り扱いが異なります。
+例えば、C言語の使用ではswitch文のcaseラベルにはリテラルか列挙定
+数の記述しか認められず、constによる定数の使用は許されません。
+一部のコンパイラではcaseラベルへのconst定数の利用を許容します
+が、コンパイラの種類や設定によっては警告やエラーを出すものがあります。
+スクリーン リーダーのサポートを有効にする
+#include <stdio.h> int main(void) { float f = 3; double d = f; printf("%f¥n", f); printf("%f¥n", d); return 0; } #include <stdio.h> #include <stdlib.h> #include <time.h> typedef char String[1024]; int main(void) { String name; printf("あなたの名前を入力してください。\n"); scanf("%s", name); srand((unsigned)time(nullptr)); int r = rand() % 4; printf("%sさんのおみくじ番号は、%d番です！\n", name ,r); // printf("0番 大吉¥n1番 中吉¥n2番 吉¥n3番 凶\n"); switch (r) { case 0: printf("大吉！最高の一日です！\n"); break; case 1: printf("中吉！良いことがあるかも！\n"); break; case 2: printf("小吉！少し良いことがあるかも！\n"); break; case 3: printf("凶…注意して過ごしましょう。\n"); break; } return 0; } #include <stdio.h> #include <stdlib.h> #include <time.h> int main(void) { printf("あなたの運勢を占います\n"); srand((unsigned)time(nullptr)); int fortune = rand () % 5 + 1; switch (fortune) { case 1: case 2: printf("いいね!\n"); break; case 3: printf("普通です\n"); break; case 4: case 5: printf("うーん•••\n"); } return 0; }#include <stdio.h> #include <stdlib.h> #include <time.h> int main(void) { printf("あなたの運勢を占います\n"); srand((unsigned)time(nullptr)); int fortune = rand () % 5 + 1; switch (fortune) { case 1: case 2: printf("いいね!\n"); break; case 3: printf("普通です\n"); break; case 4: case 5: printf("うーん•••\n"); } return 0; }
+ 
+スクリーン リーダーのサポートを有効にするには、⌘+option+Z を押します。キーボード ショートカットの詳細については、⌘スラッシュ を押します。
+名前ボックス。⌘ + J。 A:A を選択しました。 セル範囲または名前付き範囲を入力して Enter キーを押すと、指定した範囲に移動します。
