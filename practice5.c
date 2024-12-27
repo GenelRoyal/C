@@ -97,17 +97,103 @@
 //   return 0;
 // }
 
+// #include <stdio.h>
+
+// int main(void)
+// {
+//   printf("1~4までカウントします\n");
+//   printf("1\n");
+//   goto END;  //「END」ラベルまでジャンプしろ
+//   printf("2\n");
+//   printf("3\n");
+//   printf("4\n");
+// END:  // ラベル「END」
+//   printf("カウント終了\n");
+//   return 0;
+// }
+
+
+
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// typedef char String[1024];
+
+// int main(void)
+// {
+//   String answer;
+//   printf("1~9の数を入力してください\n");
+//   scanf("%s", answer);
+//   int ansNo = atoi(answer);
+  
+//   switch (ansNo){
+//     case 1:
+//     case 2: printf("バッテリー\n"); break;
+//     case 3:
+//     case 4:
+//     case 5:
+//     case 6: printf("内野手\n"); break;
+//     case 7:
+//     case 8:
+//     case 9: printf("外野手\n"); break;
+//     default: printf("入力された守備位置はありません\n");
+//   }
+//   return 0;
+// }
+
+// #include <stdio.h>
+
+// int main(void)
+// {
+//   const int MONEY = 3000;
+//   int pocket = MONEY;
+  
+//   printf("リンゴ ");
+//   while (pocket >= 120) {
+//     printf("*");
+//     pocket = pocket - 120;
+//   }
+//   printf(" 余りは%d円\n", pocket);
+  
+//   pocket = MONEY;
+//   printf("ミカン ");
+//   while(pocket >= 400) {
+//     for (int i = 1; i <= 6; i++) {
+//       printf("*");
+//     }
+//     pocket = pocket - 400;
+//   }
+//   printf(" 余りは%d円\n", pocket);
+//   return 0;
+// }
+
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+typedef char String[1024];
 
 int main(void)
 {
-  printf("1~4までカウントします\n");
-  printf("1\n");
-  goto END;  //「END」ラベルまでジャンプしろ
-  printf("2\n");
-  printf("3\n");
-  printf("4\n");
-END:  // ラベル「END」
-  printf("カウント終了\n");
+  printf("***数当てゲーム(レベル1)***\n回答のチャンスは4回までです\n1桁の数を入力してください＞\n");
+  srand((unsigned)time(nullptr));
+  int answer = rand() % 10;
+  int input;
+  String inputStr;
+  
+  for (int i = 1; i <= 4; i++){
+    scanf("%s", inputStr);
+    input = atoi(inputStr);
+    if(answer == input){
+      printf("当たり！%d回目の入力でした\n", i);
+      break;
+    } else if(answer < input) {
+      printf("はずれ！答えはもっと小さな数です\n");
+    } else {
+      printf("はずれ！答えはもっと大きな数です\n");    }
+  }
+  if(answer != input) {
+    printf("答えは%dでした\n", answer);
+  }
   return 0;
 }
