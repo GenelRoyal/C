@@ -72,12 +72,42 @@
 //   return 0;
 // }
 
+// #include <stdio.h>
+
+// int main(void)
+// {
+//   for (int i = 0; i < 3; i++) {
+//     printf("現在%d周目です\n", i + 1); //i + 1は1周目からを指定
+//   }
+//   return 0;
+// }
+
+
+
+// #include <stdio.h>
+
+// int main(void)
+// {
+//   for (int i = 1; i < 10; i++) {
+//     for (int j = 1; j < 10; j++) {
+//       printf("%2d", i * j);　//%2d 2桁の幅
+//     }
+//     printf("\n");
+//   }
+//   return 0;
+// }
+
 #include <stdio.h>
 
 int main(void)
 {
-  for (int i = 0; i < 3; i++) {
-    printf("現在%d周目です\n", i + 1); //i + 1は1周目からを指定
-  }
+  printf("1~4までカウントします\n");
+  printf("1\n");
+  goto END;  //「END」ラベルまでジャンプしろ
+  printf("2\n");
+  printf("3\n");
+  printf("4\n");
+END:  // ラベル「END」
+  printf("カウント終了\n");
   return 0;
 }
