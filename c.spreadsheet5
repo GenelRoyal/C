@@ -48,8 +48,47 @@ D10
 数の記述しか認められず、constによる定数の使用は許されません。
 一部のコンパイラではcaseラベルへのconst定数の利用を許容します
 が、コンパイラの種類や設定によっては警告やエラーを出すものがあります。
-スクリーン リーダーのサポートを有効にする
-#include <stdio.h> int main(void) { float f = 3; double d = f; printf("%f¥n", f); printf("%f¥n", d); return 0; } #include <stdio.h> #include <stdlib.h> #include <time.h> typedef char String[1024]; int main(void) { String name; printf("あなたの名前を入力してください。\n"); scanf("%s", name); srand((unsigned)time(nullptr)); int r = rand() % 4; printf("%sさんのおみくじ番号は、%d番です！\n", name ,r); // printf("0番 大吉¥n1番 中吉¥n2番 吉¥n3番 凶\n"); switch (r) { case 0: printf("大吉！最高の一日です！\n"); break; case 1: printf("中吉！良いことがあるかも！\n"); break; case 2: printf("小吉！少し良いことがあるかも！\n"); break; case 3: printf("凶…注意して過ごしましょう。\n"); break; } return 0; } #include <stdio.h> #include <stdlib.h> #include <time.h> int main(void) { printf("あなたの運勢を占います\n"); srand((unsigned)time(nullptr)); int fortune = rand () % 5 + 1; switch (fortune) { case 1: case 2: printf("いいね!\n"); break; case 3: printf("普通です\n"); break; case 4: case 5: printf("うーん•••\n"); } return 0; }#include <stdio.h> #include <stdlib.h> #include <time.h> int main(void) { printf("あなたの運勢を占います\n"); srand((unsigned)time(nullptr)); int fortune = rand () % 5 + 1; switch (fortune) { case 1: case 2: printf("いいね!\n"); break; case 3: printf("普通です\n"); break; case 4: case 5: printf("うーん•••\n"); } return 0; }
- 
-スクリーン リーダーのサポートを有効にするには、⌘+option+Z を押します。キーボード ショートカットの詳細については、⌘スラッシュ を押します。
-名前ボックス。⌘ + J。 A:A を選択しました。 セル範囲または名前付き範囲を入力して Enter キーを押すと、指定した範囲に移動します。
+
+
+do-while文は、まず実行してから条件式を評価します。
+
+while (temp > 25) {
+  temp--;
+}
+
+do {
+  temp--;
+} while (temp > 25); //while文とは異なりセミコロンが必要
+
+while文とdo-while文のいちばんの違いは、「必ず実行されるループの回数」だ。
+while文はブロックを実行する前に条件判定を行うので(これを前置判定と言います)、最初から条件式の判定結果が偽になっ
+ている場合には一度もブロックの内容を実行しません。
+一方、do-while文はブロックを実行した後に条件判定を行うので(これを後置判定と言います)、必ず最低1回はブロックの内容が実行されます。
+
+①初期化処理
+forによる繰り返しを始める前に、最初の1回だけ実行される文です。通常、何周目のループなのかを記録する変数の宣言や初期化を行います。このような変数をループ変数と言います。
+②繰り返し条件
+このループを継続するか否かを判定する条件式です。ブロックの内容を実行する前に毎回評価されます。評価結果が真である間は、ブロックが繰り返し実行されます。for分やwhile文と同じ前置判定の繰り返し構文です。
+③繰り返し処理
+ブロックを閉じる波括弧まで処理が到達した直後に自動的に実行される文です。
+通常、ループ変数の値を1だけ増やす文を書きます。
+
+ループ変数の名前は自由に決められます。1文字程度の短い変数名が選ばれることが多いようです。
+ループ変数は変数の一つなので、ブロック内の計算や表示などの処理に使えます。
+ifブロック内で宣言した変数がブロック外では使えないように、for文の初期化処理で宣言したループ変数もfor文のブロック内でのみ有効です。
+for文を抜けるとループ変数は消滅してしまいますので注意が必要です。
+
+//ループ変数を1から開始する
+for (int i = 1; i < 10; i++) {...}
+
+//ループ変数を2ずつ増やす
+for (int i = 0; i < 10, i += 2) {...}
+
+//ループ処理を10から1ずつ1まで減らす
+for (int i = 10, i > 0, i--) {...}
+
+//ループ変数を初期化しない
+for (; i < 10; i++) {...}
+
+//繰り返し時処理を行わない（無限ループ）
+for (int i = 0; i < 10;) {...}
