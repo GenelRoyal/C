@@ -35,3 +35,34 @@ suzaku.name = "朱雀"　//これはダメ
 
 String型のメンバです。
 このメンバに「朱雀」という文字列を代入する操作は、以前結んだ文字列型に関する第3の約束「初期化を除いて=で代入してはならない」に違反してしまいます。
+
+
+struct MONSTER suzaku = {"朱雀", 100, 30};
+or
+struct MONSTER suzaku = {
+  .name = "朱雀",
+  .hp = 100,
+  .attack = 30
+};
+
+typedef 型名 型につける別名;
+typedef宣言は、構造体に限らず、C言語のどのような型に対しても別名を付けることができる構文です。
+
+typedef struct MONSTER Monster;  //struct MONSTER型にMonster型という別名を付与
+Monster suzaku;  //以降、Monster型を利用可能
+
+structを省略した方が直感的にわかりやすいため、構造体はtypedef宣言と組み合わせて利用するパターンが一般的です。
+
+列挙体は、構造体のようにタグ名を付けると列挙型として取り扱えるようになります。
+例えば、次のような宣言により、型enum SIGNALや型Signalが利用可能になり、
+その型の変数にはRED(0)やYELLOW(1)が代入できます。
+
+enum SIGNAL {RED, YELLOW, GREEN};
+typedef enum {RED, YELLOW, GREEN} Signal;
+
+C言語の列挙型はint型の別名に過ぎません。
+Signal型の変数に対して、REDやYELLOW、GREEN以外には整数であれば3や-10が代入できてしまう点には注意が必要です。
+しかし、単純にint型で宣言するより意図が明確になるというメリットがあります。
+
+
+
