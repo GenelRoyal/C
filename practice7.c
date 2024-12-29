@@ -21,3 +21,16 @@ int main(void)
   printf("\n");  //最後に改行しておく
   return 0;
 }
+
+
+#include <stdio.h>
+
+int main(void)
+{
+  int gems[10];
+  gems[1] = 3;
+  printf("%d\n", gems[1]);
+  return 0;
+}
+
+
