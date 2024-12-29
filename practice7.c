@@ -34,3 +34,14 @@ int main(void)
 }
 
 
+#include <stdio.h>
+
+int main(void)
+{
+  int gems[10] = {};
+  printf("%d\n", gems[0]);
+  printf("%d\n", gems[1]);
+  printf("%d\n", gems[5]);
+  printf("%d\n", gems[9]);
+  return 0;
+}
