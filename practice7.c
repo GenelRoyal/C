@@ -167,3 +167,32 @@ int main(void)
   
   return 0;
 }
+
+
+#include <stdio.h>
+
+typedef char String[1024];
+
+int main(void)
+{
+  typedef struct {
+    String name;
+    int hp;
+    int attack;
+  } Monster;
+  
+  Monster monsters[] = {{"青龍", 80, 15},  //要素数４のモンスター配列型を作って初期化
+                        {"朱雀", 100, 30},
+                        {"白虎", 100, 20},
+                        {"玄武", 120, 10}};
+                        
+  const String TEMPLATE = "%s：HP=%3d 攻撃力=%2d\n";  //ループでモンスターを順番に表示
+  for (int i = 0; i < 4; i++) {
+    printf(TEMPLATE,
+        monsters[i].name, monsters[i].hp, monsters[i].attack);
+  }
+  
+  return 0;
+}
+
+
