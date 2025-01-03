@@ -247,3 +247,27 @@ int main(void)
   return 0;
 }
 
+#include <stdio.h>
+
+int main(void)
+{
+  typedef int GemList[10];  //int[10]型にGemListという別名を与える
+  GemList gems;  //int gems[10];と同じ
+  gems[1] = 3;
+  printf("%d\n", gems[1]);
+  return 0;
+}
+
+
+#include <stdio.h>
+
+typedef char String[1024];
+
+int main(void)
+{
+  String msg = "HAL";
+  printf("%c\n", msg[0]); //'H'
+  printf("%c\n", msg[1]); //'A'
+  printf("%c\n", msg[2]); //'L'
+  return 0;
+}]
