@@ -196,3 +196,54 @@ int main(void)
 }
 
 
+#include <stdio.h>
+
+int main(void)
+{
+  int a[] = {10, 20, 30, 40, 50};
+                        
+  for (int i = 0; i < 5; i++) {
+    printf("%d\n", a[i]);
+  }
+  
+  return 0;
+}
+
+
+#include <stdio.h>
+
+int main(void)
+{
+  int a[] = {10, 20, 30, 40, 50};
+  int b[] = {5, 15, 25, 35, 45};
+  int c[5];  //計算結果を格納する配列
+                   
+  //配列の足し算をループで処理     
+  for (int i = 0; i < 5; i++) {
+    c[i] = a[i] + b[i];
+  }
+  
+  //計算結果の出力
+  printf("配列cの結果：\n");
+  for (int i = 0; i < 5; i++) {
+    printf("%d ", c[i]);
+  }
+  
+  return 0;
+}
+
+
+#include <stdio.h>
+
+int main(void)
+{
+  int a[] = {10, 20, 30, 40, 50};
+  int b[5];
+  for (int i = 0; i < 5; i++) {
+    b[i] = a[i];
+    printf("%d %d ", b[i], a[i]);
+  }
+  
+  return 0;
+}
+
