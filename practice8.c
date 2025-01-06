@@ -16,22 +16,46 @@
 
 
 
+// #include <stdio.h>
+
+
+// void funcB(void)
+// {
+//   printf("関数Bです\n");
+// }
+
+// void funcA(void)
+// {
+//   printf("関数Aです\n");
+//   funcB();
+// }
+
+// int main(void) //main関数
+// {
+//   funcA();
+//   return 0;
+// }
+
+
+
 #include <stdio.h>
 
+void funcA(void); //funcAの存在を表明
+void funcB(void); //funcBの存在を表明
 
-void funcB(void)
+int main(void)
 {
-  printf("関数Bです\n");
+  funcA();
+  return 0;
 }
 
-void funcA(void)
+void funcA(void) 
 {
   printf("関数Aです\n");
   funcB();
 }
 
-int main(void) //main関数
+void funcB(void)
 {
-  funcA();
-  return 0;
+  printf("関数Bです\n");
 }
