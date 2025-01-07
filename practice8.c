@@ -61,26 +61,45 @@
 // }
 
 
+// #include <stdio.h>
+
+// void hello(int no)
+// {
+//   if (no == 1) {
+//     printf("岬さん、こんにちは\n");
+//   } else if (no == 2) {
+//     printf("赤城さん、こんにちは\n");
+//   } else {
+//     printf("海藤さん、こんにちは\n");
+//   }
+// }
+
+// int main(void)
+// {
+//   printf("関数を呼び出します\n");
+//   hello(1); //引数1を渡しながら関数を呼び出す
+//   hello(2); //引数2を渡しながら関数を呼び出す
+//   hello(3); //引数3を渡しながら関数を呼び出す
+//   printf("関数の呼び出しが終わりました\n");
+  
+//   return 0;
+// }
+
+
+
 #include <stdio.h>
 
-void hello(int no)
+void add(int x, int y)
 {
-  if (no == 1) {
-    printf("岬さん、こんにちは\n");
-  } else if (no == 2) {
-    printf("赤城さん、こんにちは\n");
-  } else {
-    printf("海藤さん、こんにちは\n");
-  }
+  int ans = x + y;
+  printf("%d + %d = %d\n", x, y, ans);
 }
 
 int main(void)
 {
-  printf("関数を呼び出します\n");
-  hello(1); //引数1を渡しながら関数を呼び出す
-  hello(2); //引数2を渡しながら関数を呼び出す
-  hello(3); //引数3を渡しながら関数を呼び出す
-  printf("関数の呼び出しが終わりました\n");
+  int year = 2025;
+  add(year, 4); //変数yearと4を渡してadd関数を呼び出す
+  add(year, 50); //変数yearと50を渡してadd関数を呼び出す
   
   return 0;
 }
