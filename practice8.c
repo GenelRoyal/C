@@ -87,19 +87,43 @@
 
 
 
+// #include <stdio.h>
+
+// void add(int x, int y)
+// {
+//   int ans = x + y;
+//   printf("%d + %d = %d\n", x, y, ans);
+// }
+
+// int main(void)
+// {
+//   int year = 2025;
+//   add(year, 4); //変数yearと4を渡してadd関数を呼び出す
+//   add(year, 50); //変数yearと50を渡してadd関数を呼び出す
+  
+//   return 0;
+// }
+
+
+
 #include <stdio.h>
 
-void add(int x, int y)
+int add(int x, int y)
 {
   int ans = x + y;
-  printf("%d + %d = %d\n", x, y, ans);
+  return ans;
 }
 
 int main(void)
 {
   int year = 2025;
-  add(year, 4); //変数yearと4を渡してadd関数を呼び出す
-  add(year, 50); //変数yearと50を渡してadd関数を呼び出す
+  
+  int ans1;
+  ans1 = add(year, 4); //addの結果が変数ans1に代入される
+  printf("%d年の%d年後は%d年です\n", year, 4 ,ans1);
+  
+  int ans2 = add(year, 50); //変数宣言と同時に呼び出しても良い
+  printf("%d年は%d年の%d年後です\n", ans2, year, 50);
   
   return 0;
 }
